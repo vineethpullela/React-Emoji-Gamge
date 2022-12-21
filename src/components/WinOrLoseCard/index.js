@@ -1,26 +1,33 @@
-import {Component} from 'react'
 import './index.css'
 
-class WinOrLossCard extends Component {
-  render() {
-    return (
-      <div className="win-loss-card-container">
-        <div className="text-container">
-          <h1 className="win-loss-text">You Won</h1>
-          <p className="score-text">Best Score</p>
-          <p className="score">12/12</p>
-          <button type="button" className="play-again-button">
-            Play Again
-          </button>
-        </div>
-        <img
-          src="https://assets.ccbp.in/frontend/react-js/won-game-img.png"
-          alt="you won"
-          className="won-img"
-        />
+const LOSE_IMAGE = 'https://assets.ccbp.in/frontend/react-js/lose-game-img.png'
+const WON_IMAGE = 'https://assets.ccbp.in/frontend/react-js/won-game-img.png'
+
+const WinOrLoseCard = props => {
+  const {isWon, onClickPlayAgain, score} = props
+  const imageUrl = isWon ? WON_IMAGE : LOSE_IMAGE
+  const gameStatus = isWon ? 'You Won' : 'You Lose'
+  const scoreLabel = isWon ? 'Best Score' : 'Score'
+
+  return (
+    <div className="win-or-lose-card">
+      <div className="details-section">
+        <h1 className="game-status">{gameStatus}</h1>
+        <p className="current-score-label">{scoreLabel}</p>
+        <p className="current-score-value">{score}/12</p>
+        <button
+          type="button"
+          className="play-again-button"
+          onClick={onClickPlayAgain}
+        >
+          Play Again
+        </button>
       </div>
-    )
-  }
+      <div className="image-section">
+        <img className="win-or-lose-image" src={imageUrl} alt="win or lose" />
+      </div>
+    </div>
+  )
 }
 
-export default WinOrLossCard
+export default WinOrLoseCard

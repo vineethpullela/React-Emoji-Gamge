@@ -1,25 +1,28 @@
-import {Component} from 'react'
 import './index.css'
 
-class NavBar extends Component {
-  render() {
-    return (
-      <div className="top-container">
-        <div className="game-logo-container">
+const NavBar = props => {
+  const {currentScore, isGameInProgress, topScore} = props
+
+  return (
+    <nav className="nav-bar-container">
+      <div className="title-with-score-container">
+        <div className="logo-and-title-container">
           <img
+            className="emoji-logo"
             src="https://assets.ccbp.in/frontend/react-js/game-logo-img.png"
             alt="emoji logo"
-            className="logo-img"
           />
-          <h1 className="log-name">Emoji Game</h1>
+          <h1 className="title">Emoji Game</h1>
         </div>
-        <div className="scores-container">
-          <p className="score-name">Score: 0</p>
-          <p className="score-name">Top Score: 0</p>
-        </div>
+        {isGameInProgress && (
+          <div className="scores-container">
+            <p className="score">Score: {currentScore}</p>
+            <p className="score">Top Score: {topScore}</p>
+          </div>
+        )}
       </div>
-    )
-  }
+    </nav>
+  )
 }
 
 export default NavBar

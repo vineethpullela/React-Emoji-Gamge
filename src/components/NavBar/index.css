@@ -1,34 +1,60 @@
-.top-container {
-  height: 8%;
-  width: 100%;
+.nav-bar-container {
+  display: flex;
+  justify-content: center;
   background-color: #ffffff33;
+  padding: 8px;
+}
+
+.title-with-score-container {
   display: flex;
   justify-content: space-between;
-  padding-right: 50px;
-}
-.game-logo-container {
-  display: flex;
-  align-items: center;
-  padding-left: 50px;
+  flex-basis: 80%;
+  max-width: 1000px;
 }
 
-.logo-img {
-  height: 40px;
+.logo-and-title-container {
+  display: flex;
+  align-items: center;
 }
-.log-name {
-  font-family: 'Roboto';
-  font-size: 22px;
+
+.emoji-logo {
+  width: 24px;
+}
+
+@media screen and (min-width: 768px) {
+  .emoji-logo {
+    width: 48px;
+  }
+}
+
+.title {
   color: #ffffff;
+  font-family: 'Roboto';
+  font-size: 16px;
+  font-weight: bold;
 }
+
+@media screen and (min-width: 768px) {
+  .title {
+    font-size: 24px;
+  }
+}
+
 .scores-container {
   display: flex;
-
-  align-items: center;
 }
-.score-name {
+
+.score {
   color: #ffffff;
   font-family: 'Roboto';
-  font-size: 19px;
+  font-size: 16px;
   font-weight: 500;
-  margin-right: 20px;
+  margin-left: 16px;
+}
+
+@media screen and (min-width: 768px) {
+  .score {
+    font-size: 24px;
+    margin-left: 32px;
+  }
 }

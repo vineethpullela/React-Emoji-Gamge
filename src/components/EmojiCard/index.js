@@ -1,17 +1,20 @@
-import {Component} from 'react'
 import './index.css'
 
-class EmojiCard extends Component {
-  render() {
-    const {emojiDetails} = this.props
-    const {emojiName, emojiUrl, id} = emojiDetails
+const EmojiCard = props => {
+  const {emojiDetails, clickEmoji} = props
+  const {id, emojiName, emojiUrl} = emojiDetails
 
-    return (
-      <li className="emoji-container">
-        <img src={emojiUrl} alt={emojiName} key={id} className="emoji-img" />
-      </li>
-    )
+  const onClickEmojiCard = () => {
+    clickEmoji(id)
   }
+
+  return (
+    <li className="emoji-item">
+      <button type="button" className="emoji-btn" onClick={onClickEmojiCard}>
+        <img className="emoji-icon" src={emojiUrl} alt={emojiName} />
+      </button>
+    </li>
+  )
 }
 
 export default EmojiCard
